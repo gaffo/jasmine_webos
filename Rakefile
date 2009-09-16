@@ -6,10 +6,10 @@ begin
   Jeweler::Tasks.new do |gem|
     gem.name = "jasmine-webos"
     gem.summary = %Q{Enables Jasmine Testing for WebOS Apps}
-    gem.description = %Q{FILLINDESCRIPTION}
-    gem.email = "mike.gaffney@asolutions.com"
+    gem.description = %Q{Enables Jasmine Testing for WebOS Apps}
+    gem.email = "mr.gaffo@gmail.com"
     gem.homepage = "http://github.com/gaffo/jasmine-webos"
-    gem.authors = ["mike.gaffney"]
+    gem.authors = ["Mike Gaffney"]
     gem.add_dependency "rubigen"
     gem.add_development_dependency "thoughtbot-shoulda"
     gem.add_development_dependency "cucumber"
