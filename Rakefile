@@ -10,6 +10,7 @@ begin
     gem.email = "mike.gaffney@asolutions.com"
     gem.homepage = "http://github.com/gaffo/jasmine-webos"
     gem.authors = ["mike.gaffney"]
+    gem.add_dependency "rubigen"
     gem.add_development_dependency "thoughtbot-shoulda"
     gem.add_development_dependency "cucumber"
     # gem is a Gem::Specification... see http://www.rubygems.org/read/chapter/20 for additional settings
@@ -23,19 +24,6 @@ Rake::TestTask.new(:test) do |test|
   test.libs << 'lib' << 'test'
   test.pattern = 'test/**/*_test.rb'
   test.verbose = true
-end
-
-begin
-  require 'rcov/rcovtask'
-  Rcov::RcovTask.new do |test|
-    test.libs << 'test'
-    test.pattern = 'test/**/*_test.rb'
-    test.verbose = true
-  end
-rescue LoadError
-  task :rcov do
-    abort "RCov is not available. In order to run rcov, you must: sudo gem install spicycode-rcov"
-  end
 end
 
 task :test => :check_dependencies
