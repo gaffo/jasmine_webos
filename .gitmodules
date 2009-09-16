@@ -1,0 +1,3 @@
+[submodule "vendor/pivotal-jasmine"]
+	path = vendor/pivotal-jasmine
+	url = git://github.com/pivotal/jasmine
