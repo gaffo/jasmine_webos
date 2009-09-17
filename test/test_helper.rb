@@ -4,7 +4,7 @@ require 'shoulda'
 
 $LOAD_PATH.unshift(File.join(File.dirname(__FILE__), '..', 'lib'))
 $LOAD_PATH.unshift(File.dirname(__FILE__))
-require 'jasmine-webos'
+require 'jasmine_webos'
 
 class Test::Unit::TestCase
 end

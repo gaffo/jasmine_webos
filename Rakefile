@@ -4,15 +4,16 @@ require 'rake'
 begin
   require 'jeweler'
   Jeweler::Tasks.new do |gem|
-    gem.name = "jasmine-webos"
+    gem.name = "jasmine_webos"
     gem.summary = %Q{Enables Jasmine Testing for WebOS Apps}
     gem.description = %Q{Enables Jasmine Testing for WebOS Apps}
     gem.email = "mr.gaffo@gmail.com"
-    gem.homepage = "http://github.com/gaffo/jasmine-webos"
+    gem.homepage = "http://github.com/gaffo/jasmine_webos"
     gem.authors = ["Mike Gaffney"]
     gem.add_dependency "rubigen"
     gem.add_development_dependency "thoughtbot-shoulda"
     gem.add_development_dependency "cucumber"
+    gem.files << FileList['lib/**/*.rb', 'bin/*'].to_a
     # gem is a Gem::Specification... see http://www.rubygems.org/read/chapter/20 for additional settings
   end
 rescue LoadError
@@ -31,7 +32,7 @@ task :test => :check_dependencies
 begin
   require 'cucumber/rake/task'
   Cucumber::Rake::Task.new(:features)
-
+  
   task :features => :check_dependencies
 rescue LoadError
   task :features do
@@ -48,7 +49,7 @@ Rake::RDocTask.new do |rdoc|
   else
     version = ""
   end
-
+  
   rdoc.rdoc_dir = 'rdoc'
   rdoc.title = "jasmine-webos #{version}"
   rdoc.rdoc_files.include('README*')
