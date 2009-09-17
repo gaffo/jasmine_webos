@@ -1,0 +1,14 @@
+History.txt
+Manifest.txt
+PostInstall.txt
+README.rdoc
+Rakefile
+bin/jasminewebos
+lib/jasminewebos.rb
+lib/jasminewebos/cli.rb
+script/console
+script/destroy
+script/generate
+test/test_helper.rb
+test/test_jasminewebos.rb
+test/test_jasminewebos_cli.rb
