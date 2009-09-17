@@ -1,6 +1,6 @@
 = jasminewebos
 
-* http://github.com/#{github_username}/#{project_name}
+* http://github.com/gaffo/jasmine_webos
 
 == DESCRIPTION:
 
