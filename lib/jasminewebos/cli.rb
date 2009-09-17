@@ -31,7 +31,14 @@ module Jasminewebos
 
       path = options[:path]
 
-      stdout.puts "monkeys"
+      generate_stub(arguments)
+    end
+    
+    def generate_stub(args)
+      require 'rubigen/scripts/generate'
+#      RubiGen::Base.use_application_sources!
+      RubiGen::Scripts::Generate.new.run(ARGV, :generator => 'jasmine_webos_layout')
+
     end
   end
 end
