@@ -19,8 +19,8 @@ module Jasminewebos
     end
     
     def spec_files
-      raw_specs = Dir.glob(File.join(@configuration.application_root, "app/**/*[Ss]pec.js"))
-      raw_specs.collect {|f| f.sub(@configuration.application_root, "/spec")}
+      raw_specs = Dir.glob(File.join(application_src_dir, "**/*[Ss]pec.js"))
+      raw_specs.collect {|f| f.sub(application_src_dir, "/app")}
     end
     
     def source_files
@@ -31,7 +31,7 @@ module Jasminewebos
       matchers = matchers.collect {|f| f.sub(@configuration.matchers_dir, "/matchers")}
       
       sources = Dir.glob(File.join(application_src_dir, "**/*.js"))
-      sources = sources.collect {|f| f.sub(jasmine_lib_dir, "/app")}
+      sources = sources.collect {|f| f.sub(application_src_dir, "/app")}
       
       jasmine + matchers + sources
     end
@@ -48,7 +48,7 @@ module Jasminewebos
     
     private
     def application_src_dir
-      File.expand_path(File.join(@configuration.application_root, "app"))
+      File.join(@configuration.application_root, "app")
     end
     
     def jasmine_lib_dir
