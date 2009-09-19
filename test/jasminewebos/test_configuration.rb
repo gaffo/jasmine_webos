@@ -26,5 +26,28 @@ class Jasminewebos::TestConfiguration < Test::Unit::TestCase
       assert_raise(Exception){@config.specs_dir}
     end
   end
+  
+  context "with a config with application_root set" do
+    setup do
+      @config = Jasminewebos::Configuration.new
+      @config.application_root = File.dirname(__FILE__)
+    end
+    
+    should "have an app root" do
+      assert_equal(File.dirname(__FILE__), @config.application_root)
+    end
+    
+    should "have sources.json" do
+      assert_equal(File.join(File.dirname(__FILE__), "sources.json"), @config.sources_json)
+    end
+    
+    should "have specs_dir" do 
+      assert_equal(File.join(File.dirname(__FILE__), "spec", "javascript", "spec"), @config.specs_dir)
+    end
+    
+    should "have matchers_dir" do
+      assert_equal(File.join(File.dirname(__FILE__), "spec", "javascript", "matchers"), @config.matchers_dir)
+    end
+  end
 
 end
