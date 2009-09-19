@@ -1,4 +1,5 @@
 require 'optparse'
+require 'fileutils'
 
 module Jasminewebos
   class CLI
@@ -48,8 +49,8 @@ module Jasminewebos
     end
     
     def self.launch_server(args, stdout)
-      stdout.puts("Launching jasmine_webos Server...")
-      Jasminewebos::Server.new(args, stdout).start
+      config = Jasminewebos::Configuration.new(FileUtils.pwd)
+      Jasminewebos::Server.new(config).start
     end
   end
 end
