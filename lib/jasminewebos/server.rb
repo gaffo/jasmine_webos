@@ -13,7 +13,7 @@ module Jasminewebos
                                          "jasmine_spec_builder"))
                                          
       
-      
+      puts source_files
       Jasmine::SimpleServer.start(@configuration.port,
                                   lambda{spec_files},
                                   dir_mappings,
@@ -38,7 +38,7 @@ module Jasminewebos
       framework = Dir.glob(File.join(framework_dir, "**/*.js"))
       framework = framework.collect {|f| f.sub(framework_dir, "/framework")}
       
-      jasmine + matchers + sources + framework
+      framework + jasmine.sort.reverse + matchers.sort + sources.sort
     end
     
     def dir_mappings
