@@ -11,6 +11,8 @@ module Jasminewebos
                                          "contrib", 
                                          "ruby", 
                                          "jasmine_spec_builder"))
+                                         
+      
       
       Jasmine::SimpleServer.start(@configuration.port,
                                   lambda{spec_files},
@@ -19,8 +21,8 @@ module Jasminewebos
     end
     
     def spec_files
-      raw_specs = Dir.glob(File.join(application_src_dir, "**/*[Ss]pec.js"))
-      raw_specs.collect {|f| f.sub(application_src_dir, "/app")}
+      raw_specs = Dir.glob(File.join(@configuration.specs_dir, "**/*[Ss]pec.js"))
+      raw_specs.collect {|f| f.sub(@configuration.specs_dir, "/spec")}
     end
     
     def source_files
