@@ -37,19 +37,20 @@ module Jasminewebos
         end
       end
       
-      self.generate_stub(arguments, stdout) if generate
-      self.launch_server(arguments, stdout) if start_server
+      config = Jasminewebos::Configuration.new(FileUtils.pwd)
+      
+      self.generate_stub(config) if generate
+      self.launch_server(config) if start_server
       
     end
     
-    def self.generate_stub(args, stdout)
-      stdout.puts("Generating jasmine_webos required files")
-      Jasminewebos::Generator.new(args, stdout).run
-      stdout.puts("  Complete.")
+    def self.generate_stub(config)
+      puts("Generating jasmine_webos required files")
+      Jasminewebos::Generator.new(config).run
+      puts("  Complete.")
     end
     
-    def self.launch_server(args, stdout)
-      config = Jasminewebos::Configuration.new(FileUtils.pwd)
+    def self.launch_server(config)
       Jasminewebos::Server.new(config).start
     end
   end
