@@ -5,6 +5,5 @@
 
 require 'rubygems'
 require File.expand_path(File.dirname(__FILE__) + "/../lib/jasminewebos")
-require "jasminewebos/cli"
 
 Jasminewebos::CLI.execute(STDOUT, ARGV)

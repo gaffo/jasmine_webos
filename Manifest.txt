@@ -6,6 +6,8 @@ Rakefile
 bin/jasminewebos
 lib/jasminewebos.rb
 lib/jasminewebos/cli.rb
+generators/jasmine_webos_layout/jasmine_webos_layout_generator.rb
+generators/jasmine_webos_layout/USAGE
 script/console
 script/destroy
 script/generate

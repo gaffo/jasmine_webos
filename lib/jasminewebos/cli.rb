@@ -3,42 +3,53 @@ require 'optparse'
 module Jasminewebos
   class CLI
     def self.execute(stdout, arguments=[])
-      options = {
-        :path     => '.'
-      }
+      command = ""
       mandatory_options = %w(  )
-
+      
+      generate = false
+      start_server = false
+      
       parser = OptionParser.new do |opts|
         opts.banner = <<-BANNER.gsub(/^          /,'')
-          Creates the files needed for jasmine development under webos
+          Tools for working with jasmine_webos
 
-          Usage: #{File.basename($0)} 
+          Usage: 
+          #{File.basename($0)} -g
+          generates the jasmine files in the current directory
+          
+          #{File.basename($0)} -s
+          starts the jasmine server from the current directory
           
           Options:
         BANNER
         opts.separator ""
-        opts.on("-p", "--path=PATH", String,
-                "The path to the folder to jasmineize",
-                "Default: ~") { |arg| options[:path] = arg }
+        opts.on("-g", String,
+                "Starts the jasmine server from the current directory") { generate = true }
+        opts.on("-s", String,
+                "Generate the jasmine files in the current directory") { start_server = true }
         opts.on("-h", "--help",
                 "Show this help message.") { stdout.puts opts; exit }
         opts.parse!(arguments)
-
+        
         if mandatory_options && mandatory_options.find { |option| options[option.to_sym].nil? }
           stdout.puts opts; exit
         end
       end
-
-      path = options[:path]
-
-      generate_stub(arguments)
+      
+      self.generate_stub(arguments, stdout) if generate
+      self.launch_server(arguments, stdout) if start_server
+      
     end
     
-    def generate_stub(args)
-      require 'rubigen/scripts/generate'
-#      RubiGen::Base.use_application_sources!
-      RubiGen::Scripts::Generate.new.run(ARGV, :generator => 'jasmine_webos_layout')
-
+    def self.generate_stub(args, stdout)
+      stdout.puts("Generating jasmine_webos required files")
+      Jasminewebos::Generator.new(args, stdout).run
+      stdout.puts("  Complete.")
+    end
+    
+    def self.launch_server(args, stdout)
+      stdout.puts("Launching jasmine_webos Server...")
+      Jasminewebos::Server.new(args, stdout).start
     end
   end
 end
