@@ -3,7 +3,7 @@ Manifest.txt
 PostInstall.txt
 README.rdoc
 Rakefile
-bin/jasminewebos
+bin/jasmine_webos
 lib/jasminewebos.rb
 lib/jasminewebos/cli.rb
 lib/jasminewebos/configuration.rb
