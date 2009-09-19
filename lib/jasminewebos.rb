@@ -8,6 +8,10 @@ module Jasminewebos
     @@configuration = Jasminewebos::Configuration.new
     yield @@configuration
   end
+  
+  def configuration
+    @@configuration
+  end
 end
 
 require "jasminewebos/cli"
