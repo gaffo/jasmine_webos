@@ -28,6 +28,11 @@ class Jasminewebos::TestConfiguration < Test::Unit::TestCase
     should "have matchers_dir" do
       assert_equal(File.join(File.dirname(__FILE__), "spec", "javascript", "matchers"), @config.matchers_dir)
     end
+    
+    should "have jasminewebos_root" do
+      assert_equal(File.expand_path(File.join(File.dirname(__FILE__), "..", "..")),
+                   @config.jasminewebos_root)
+    end
   end
   
 end

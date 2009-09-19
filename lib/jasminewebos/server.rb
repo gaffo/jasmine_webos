@@ -35,11 +35,15 @@ module Jasminewebos
       sources = Dir.glob(File.join(application_src_dir, "**/*.js"))
       sources = sources.collect {|f| f.sub(application_src_dir, "/app")}
       
-      jasmine + matchers + sources
+      framework = Dir.glob(File.join(framework_dir), "**/*.js")
+      framework = framework.collect {|f| f.sub(framework_dir, "/framework")}
+      
+      jasmine + matchers + sources + framework
     end
     
     def dir_mappings
       {
+              "/framework" => framework_dir,
               "/app" => application_src_dir,
               "/spec" => @configuration.specs_dir,
               "/matchers" => @configuration.matchers_dir,
@@ -49,6 +53,10 @@ module Jasminewebos
     end
     
     private
+    def framework_dir
+      File.join(@configuration.jasminewebos_root, "jslib")
+    end
+    
     def application_src_dir
       File.join(@configuration.application_root, "app")
     end
