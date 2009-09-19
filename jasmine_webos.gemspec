@@ -1,5 +1,6 @@
 # -*- encoding: utf-8 -*-
 
+
 Gem::Specification.new do |s|
   s.name = %q{jasmine_webos}
   s.version = "0.0.1"
