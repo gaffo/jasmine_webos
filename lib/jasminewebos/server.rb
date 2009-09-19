@@ -35,7 +35,7 @@ module Jasminewebos
       sources = Dir.glob(File.join(application_src_dir, "**/*.js"))
       sources = sources.collect {|f| f.sub(application_src_dir, "/app")}
       
-      framework = Dir.glob(File.join(framework_dir), "**/*.js")
+      framework = Dir.glob(File.join(framework_dir, "**/*.js"))
       framework = framework.collect {|f| f.sub(framework_dir, "/framework")}
       
       jasmine + matchers + sources + framework
