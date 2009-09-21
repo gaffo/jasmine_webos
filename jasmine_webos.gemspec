@@ -1,15 +1,14 @@
 # -*- encoding: utf-8 -*-
 
-
 Gem::Specification.new do |s|
   s.name = %q{jasmine_webos}
-  s.version = "0.0.1"
+  s.version = "0.0.2"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Mike Gaffney"]
-  s.date = %q{2009-09-19}
+  s.date = %q{2009-09-21}
   s.default_executable = %q{jasmine_webos}
-  s.description = %q{FIX (describe your package)}
+  s.description = %q{Generates the stub files needed for testing with jasmine on a webos application. Runs a server to view your tests against.}
   s.email = ["mr.gaffo@gmail.com"]
   s.executables = ["jasmine_webos"]
   s.extra_rdoc_files = ["History.txt", "Manifest.txt", "PostInstall.txt"]
@@ -21,7 +20,7 @@ Gem::Specification.new do |s|
   s.require_paths = ["lib"]
   s.rubyforge_project = %q{jasmine_webos}
   s.rubygems_version = %q{1.3.1}
-  s.summary = %q{FIX (describe your package)}
+  s.summary = %q{Generates the stub files needed for testing with jasmine on a webos application}
   s.test_files = ["test/test_helper.rb", "test/jasminewebos/test_server.rb", "test/jasminewebos/test_configuration.rb", "test/jasminewebos/test_jasminewebos_cli.rb", "test/test_jasminewebos.rb"]
 
   if s.respond_to? :specification_version then
@@ -29,11 +28,17 @@ Gem::Specification.new do |s|
     s.specification_version = 2
 
     if Gem::Version.new(Gem::RubyGemsVersion) >= Gem::Version.new('1.2.0') then
+      s.add_runtime_dependency(%q<thin>, [">= 1.2.4"])
+      s.add_runtime_dependency(%q<json>, [">= 1.1.9"])
       s.add_development_dependency(%q<hoe>, [">= 2.3.3"])
     else
+      s.add_dependency(%q<thin>, [">= 1.2.4"])
+      s.add_dependency(%q<json>, [">= 1.1.9"])
       s.add_dependency(%q<hoe>, [">= 2.3.3"])
     end
   else
+    s.add_dependency(%q<thin>, [">= 1.2.4"])
+    s.add_dependency(%q<json>, [">= 1.1.9"])
     s.add_dependency(%q<hoe>, [">= 2.3.3"])
   end
 end

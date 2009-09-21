@@ -1,6 +1,1 @@
 For more information on jasminewebos, see http://github.com/gaffo/jasmine_webos
-
-NOTE: Change this information in PostInstall.txt 
-You can also delete it if you don't want it.
-
-
