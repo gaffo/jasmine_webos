@@ -35,10 +35,13 @@ module Jasminewebos
       sources = Dir.glob(File.join(application_src_dir, "**/*.js"))
       sources = sources.collect {|f| f.sub(application_src_dir, "/app")}
       
+      javascripts_sources = Dir.glob(File.join(javascripts_sources_dir, "**/*.js"))
+      javascripts_sources = javascripts_sources.collect {|f| f.sub(javascripts_sources_dir, "/javascripts")}
+      
       framework = Dir.glob(File.join(framework_dir, "**/*.js"))
       framework = framework.collect {|f| f.sub(framework_dir, "/framework")}
       
-      framework + jasmine.sort.reverse + matchers.sort + sources.sort
+      framework + jasmine.sort.reverse + matchers.sort + sources.sort + other_sources.sort
     end
     
     def dir_mappings
@@ -48,11 +51,16 @@ module Jasminewebos
               "/spec" => @configuration.specs_dir,
               "/matchers" => @configuration.matchers_dir,
               "/lib" => jasmine_lib_dir,
-              "/matchers" => @configuration.matchers_dir
+              "/matchers" => @configuration.matchers_dir,
+              "/javascripts" => javascripts_sources_dir
       }
     end
     
     private
+    def javascripts_sources_dir
+      File.join(@configuration.application_root, "javascripts")
+    end
+    
     def framework_dir
       File.join(@configuration.jasminewebos_root, "jslib")
     end
