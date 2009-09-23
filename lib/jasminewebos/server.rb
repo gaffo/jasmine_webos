@@ -6,6 +6,7 @@ module Jasminewebos
     
     def start
       puts "Starting JasmineWebOS Server from #{@configuration.application_root}"
+      puts "on http://localhost:#{@configuration.port}"
       
       require File.expand_path(File.join(@configuration.jasmine_root, 
                                          "contrib", 
@@ -13,7 +14,6 @@ module Jasminewebos
                                          "jasmine_spec_builder"))
                                          
       
-      puts source_files
       Jasmine::SimpleServer.start(@configuration.port,
                                   lambda{spec_files},
                                   dir_mappings,
