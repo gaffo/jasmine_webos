@@ -41,7 +41,7 @@ module Jasminewebos
       framework = Dir.glob(File.join(framework_dir, "**/*.js"))
       framework = framework.collect {|f| f.sub(framework_dir, "/framework")}
       
-      framework + jasmine.sort.reverse + matchers.sort + sources.sort + other_sources.sort
+      framework + jasmine.sort.reverse + matchers.sort + sources.sort + javascripts_sources.sort
     end
     
     def dir_mappings
