@@ -9,8 +9,8 @@ Runs a server to view your tests against.
 
 == INSTALL:
 
-sudo gem source -a http://gems.github.com
-sudo gem install gaffo-jasmine_webos
+sudo gem source -a http://gemcutter.org
+sudo gem install jasmine_webos
 
 == LICENSE:
 
