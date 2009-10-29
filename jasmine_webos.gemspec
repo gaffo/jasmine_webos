@@ -2,11 +2,11 @@
 
 Gem::Specification.new do |s|
   s.name = %q{jasmine_webos}
-  s.version = "0.0.7"
+  s.version = "0.0.8"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Mike Gaffney"]
-  s.date = %q{2009-10-09}
+  s.date = %q{2009-10-28}
   s.default_executable = %q{jasmine_webos}
   s.description = %q{Generates the stub files needed for testing with jasmine on a webos application.
 Runs a server to view your tests against.}
